@@ -1,0 +1,13 @@
+<h1>Agenda de Contactos</h1>
+<a href="{% url 'crear_contacto' %}">Nuevo Contacto</a>
+<ul>
+  {% for contacto in contactos %}
+    <li>
+      {{ contacto.nombre_completo }} - {{ contacto.correo_electronico }}
+      [<a href="{% url 'editar_contacto' contacto.id %}">Editar</a>]
+      [<a href="{% url 'eliminar_contacto' contacto.id %}">Eliminar</a>]
+    </li>
+  {% empty %}
+    <li>No hay contactos.</li>
+  {% endfor %}
+</ul>
